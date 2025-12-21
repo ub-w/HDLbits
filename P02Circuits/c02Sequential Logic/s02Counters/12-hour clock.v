@@ -17,7 +17,7 @@ module top_module(
     counter #(.start(4'd0),.endd(4'd9)) mm9(clk , reset, enable[3], mm[3:0]);
     counter #(.start(4'd0),.endd(4'd5)) mm5(clk , reset, enable[4], mm[7:4]);
     assign enable[5] = (mm[7:4] == 4'd5) & enable[4];
-    assign enable[6] = (hh_r[3:0] == 4'd12) & enable[5];
+    assign enable[6] = (hh_r[3:0] == 4'hb) & enable[5];
     counter #(.start(4'h0),.endd(4'hb)) hh12(clk , reset, enable[5], hh_r[3:0]);
     counter #(.start(4'h0),.endd(4'h1)) hh2(clk , reset, enable[6], hh_r[7:4]);
 
@@ -31,8 +31,8 @@ module counter(
 	input reset,
 	input ena,
     output reg [3:0] q);
-parameter start = 4'd0;
-parameter endd = 4'd15;
+parameter start = 4'h0;
+parameter endd = 4'hf;
     always@(posedge clk)begin
         if(reset)
             q <= start;
