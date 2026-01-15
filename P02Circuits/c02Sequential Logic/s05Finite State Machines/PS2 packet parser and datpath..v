@@ -6,7 +6,7 @@ module top_module(
     output done); //
 
     // FSM from fsm_ps2
-        localparam BYTE1 = 4'b0001,
+    localparam BYTE1 = 4'b0001,
     		   BYTE2 = 4'b0010,
     		   BYTE3 = 4'b0100,
     		   DONE = 4'b1000;
